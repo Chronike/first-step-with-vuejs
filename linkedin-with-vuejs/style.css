@@ -1,0 +1,99 @@
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #0077b5;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+article {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  overflow: hidden;
+  position: relative;
+  width: calc(25% - 20px); /* 25% width with margin */
+  box-sizing: border-box;
+}
+
+.bg-img-figure {
+  overflow: hidden;
+  height: 100px;
+}
+
+.bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  top: 30%; /* Geändert von 50% auf 30% */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+}
+
+.title,
+.firstname,
+.lastname,
+.profession,
+.mutual-con {
+  text-align: center;
+  margin: 10px 0;
+}
+
+.connect-btn {
+  background-color: #0077b5;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.connect-btn:hover {
+  background-color: #005d8f;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background-color: #d9534f; /* Roter Hintergrund */
+  border: none;
+  color: #fff; /* Weiße Schriftfarbe */
+  font-size: 1.5rem;
+  width: 20px; /* Kleinere Breite */
+  height: 20px; /* Kleinere Höhe */
+  border-radius: 50%; /* Runde Form */
+  display: flex; /* Zentrierung hinzugefügt */
+  align-items: center; /* Zentrierung hinzugefügt */
+  justify-content: center; /* Zentrierung hinzugefügt */
+  cursor: pointer;
+  padding: 0; /* Padding entfernt */
+}
+
+.remove-btn:hover {
+  background-color: #c9302c; /* Dunkleres Rot beim Überfahren */
+}
