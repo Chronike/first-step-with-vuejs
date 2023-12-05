@@ -26,13 +26,15 @@ article {
   margin: 10px;
   overflow: hidden;
   position: relative;
-  width: calc(25% - 20px); /* 25% width with margin */
+  width: calc(25% - 20px);
   box-sizing: border-box;
 }
 
 .bg-img-figure {
   overflow: hidden;
   height: 100px;
+  width: 100%;
+  margin: 0;
 }
 
 .bg-img {
@@ -46,7 +48,7 @@ article {
   border-radius: 50%;
   border: 2px solid white;
   position: absolute;
-  top: 30%; /* Geändert von 50% auf 30% */
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 80px;
@@ -80,20 +82,20 @@ article {
   position: absolute;
   top: 5px;
   right: 5px;
-  background-color: #d9534f; /* Roter Hintergrund */
+  background-color: #d9534f;
   border: none;
-  color: #fff; /* Weiße Schriftfarbe */
+  color: #fff;
   font-size: 1.5rem;
-  width: 20px; /* Kleinere Breite */
-  height: 20px; /* Kleinere Höhe */
-  border-radius: 50%; /* Runde Form */
-  display: flex; /* Zentrierung hinzugefügt */
-  align-items: center; /* Zentrierung hinzugefügt */
-  justify-content: center; /* Zentrierung hinzugefügt */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
-  padding: 0; /* Padding entfernt */
+  padding: 0;
 }
 
 .remove-btn:hover {
-  background-color: #c9302c; /* Dunkleres Rot beim Überfahren */
+  background-color: #c9302c;
 }
