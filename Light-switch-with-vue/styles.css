@@ -1,0 +1,31 @@
+body {
+  transition: background-color 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50rem;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+button {
+  padding: 15px 30px;
+  border: 2px solid #fff;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.off body {
+  background-color: black;
+  color: white;
+}
+
+.on body {
+  background-color: white;
+  color: black;
+}
