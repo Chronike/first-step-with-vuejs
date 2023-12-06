@@ -20,12 +20,12 @@ button {
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
-.off body {
+.off {
   background-color: black;
   color: white;
 }
 
-.on body {
+.on {
   background-color: white;
   color: black;
 }
