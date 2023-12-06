@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Example</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="app">
+        <header>
+            <p>{{ count }} pending invitation</p>
+        </header>
+        <main>
+            <article v-for="contact in linkedinUser" :key="contact.id">
+                <figure class="bg-img-figure">
+                    <button class="remove-btn" @click="removeContact(contact)">X</button>
+                    <img class="bg-img" :src="contact.backgroundImage" alt="Background Image">
+                </figure>
+                <img class="profile-pic" :src="contact.picture" alt="Profile Picture">
+                <p class="title">{{ contact.name.title }}</p>
+                <p class="firstname">{{ contact.name.first }}</p>
+                <p class="lastname">{{ contact.name.last }}</p>
+                <p class="profession">{{ contact.title }}</p>
+                <p class="mutual-con">{{ contact.mutualConnections }} mutual connections</p>
+                <button class="connect-btn" @click="toggleConnectionStatus(contact)">
+                    {{ contact.connectionStatus }}
+                </button>
+                </button>
+            </article>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
