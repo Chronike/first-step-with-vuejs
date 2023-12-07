@@ -1,0 +1,50 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+header {
+  background-color: burlywood;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+}
+
+input {
+  margin: 0 5px;
+}
+
+#colorValue {
+  margin: 0 10px;
+}
+
+button {
+  margin-left: 10px;
+}
+#redSlider {
+  accent-color: red;
+}
+
+#greenSlider {
+  accent-color: green;
+}
+
+#blueSlider {
+  accent-color: blue;
+}
