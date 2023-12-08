@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>Todo App</h1>
+        <input v-model="newTodo" type="text" placeholder="Add Todo">
+        <button @click="addTodo">Hinzufügen</button>
+        <div>
+            <label>
+                <input type="radio" v-model="filter" value="all"> All
+            </label>
+            <label>
+                <input type="radio" v-model="filter" value="open"> Open
+            </label>
+            <label>
+                <input type="radio" v-model="filter" value="done"> Done
+            </label>
+        </div>
+
+        <button @click="removeDoneTodos">Remove</button>
+        <ul>
+            <li v-for="todo in filteredTodos" :key="todo.id">
+                <label>
+                    <input type="checkbox" v-model="todo.done" @change="updateTodo(todo)">
+                    <span :class="{ 'done': todo.done }">{{ todo.description }}</span>
+                </label>
+            </li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>
