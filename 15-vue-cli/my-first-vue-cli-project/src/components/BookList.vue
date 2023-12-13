@@ -6,26 +6,72 @@
         <tr>
           <th class="table-item__table-head-name">Name</th>
           <th class="table-item__table-head--isbn">ISBN</th>
+          <th class="th.table-item__table-head--actions">Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr
+        <BookListRow
           v-for="book in books"
           :key="book.isbn"
-          class="table-item__table-row"
+          :title="book.title"
+          :isbn="book.isbn"
+          class=".table-item__table-row"
         >
-          <td>{{ book.title }}</td>
-          <td>{{ book.isbn }}</td>
-        </tr>
+          <template #actionCol="slotprops">
+            <BaseButton
+              :btntext="book.btntext"
+              :variant="variant"
+              :isBookmarked="book.isBookmarked"
+              @press="handleAddBookmark(slotprops.isbn)"
+            >
+              <svg
+                v-if="!book.isBookmarked"
+                style="width: 18px; line-height: 1"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <svg
+                v-else
+                xmlns="http://www.w3.org/2000/svg"
+                style="width: 18px; line-height: 1"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </BaseButton>
+          </template>
+        </BookListRow>
       </tbody>
     </table>
   </section>
 </template>
 
 <script>
+import BookListRow from "@/components/BookListRow.vue";
+import BaseButton from "@/components/BaseButton.vue";
+
 export default {
+  components: {
+    BookListRow,
+    BaseButton,
+  },
   data() {
     return {
+      btntext: "Add Bookmark",
+      isBookmarked: false,
+      variant: false,
       books: [
         {
           title: "Practical Rust Web Projects",
@@ -62,10 +108,35 @@ export default {
       ],
     };
   },
+  created() {
+    this.startUp();
+  },
+  methods: {
+    handleAddBookmark(isbn) {
+      const currentBookIndex = this.books.findIndex(
+        (book) => book.isbn === isbn
+      );
+      const currentBook = this.books[currentBookIndex];
+
+      currentBook.isBookmarked = !currentBook.isBookmarked;
+
+      if (currentBook.btntext === "Add Bookmark") {
+        currentBook.btntext = "Remove Bookmark";
+      } else {
+        currentBook.btntext = "Add Bookmark";
+      }
+    },
+    startUp() {
+      this.books.forEach((book) => {
+        book.isBookmarked = this.isBookmarked;
+        book.btntext = this.btntext;
+      });
+    },
+  },
 };
 </script>
 
-<style>
+<style scoped>
 .table-item__table {
   border-collapse: collapse;
   margin: 25px 0;
@@ -82,25 +153,13 @@ export default {
 .table-item__table-head-actions {
   width: 15%;
 }
-.table-item__table-row button {
-  opacity: 0;
-  padding: 5px;
-  transition: opacity 500ms;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.table-item__table-row:hover button {
-  opacity: 1;
+.table-item__table th {
+  padding: 12px 15px;
 }
 .table-item__table thead tr {
   background-color: var(--primary);
   color: #ffffff;
   text-align: left;
-}
-.table-item__table th,
-.table-item__table td {
-  padding: 12px 15px;
 }
 .table-item__table tbody tr {
   border-bottom: 1px solid #dddddd;
@@ -119,5 +178,13 @@ export default {
   margin-top: 1rem;
   padding-bottom: 0.4rem;
   border-bottom: 2px solid var(--primary-dark);
+}
+
+.table-item__table-row button {
+  opacity: 0;
+  padding: 5px;
+  transition: opacity 500ms;
+  cursor: pointer;
+  border-radius: 5px;
 }
 </style>
