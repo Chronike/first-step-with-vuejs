@@ -1,52 +1,29 @@
 <template>
-  <LayoutHeader />
-  <main>
-    <div id="app" class="inside">
-      <BookList />
-    </div>
-  </main>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view />
 </template>
-
-<script>
-import LayoutHeader from "./components/LayoutHeader.vue";
-import BookList from "./components/BookList.vue";
-
-export default {
-  name: "App",
-  components: {
-    LayoutHeader,
-    BookList,
-  },
-};
-</script>
-
 <style>
-:root {
-  --primary: #6a1cc3;
-  --primary-dark: #370b68;
-  --secondary: #f39c12;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
 }
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
+nav {
+  padding: 30px;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  color: var(--primary);
-  margin-bottom: 15px;
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
 
-.inside {
-  margin: 10px;
-}
-
-@media only screen and (min-width: 1140px) {
-  .inside {
-    width: 960px;
-    margin: 0 auto;
-  }
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
