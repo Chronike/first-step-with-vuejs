@@ -31,6 +31,6 @@ export default {
 
 <style scoped>
 .table-item__table td {
-  padding: 12px 15px;
+  padding: 11px 15px;
 }
 </style>

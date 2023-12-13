@@ -140,7 +140,7 @@ export default {
 .table-item__table {
   border-collapse: collapse;
   margin: 25px 0;
-  font-size: 0.9em;
+  font-size: 0.8em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   width: 100%;
 }

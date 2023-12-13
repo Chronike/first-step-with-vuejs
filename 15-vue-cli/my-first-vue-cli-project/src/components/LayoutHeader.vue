@@ -28,7 +28,7 @@ export default {
 }
 
 .header__task-name {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   margin: 0;
 }
 
