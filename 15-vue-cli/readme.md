@@ -22,3 +22,15 @@ In this task we will practice the handling with single file components in Vue CL
 - [ ] Create a BookList Component
   - [ ] Take use of provided resources `src/BookList`
   - [ ] Register it in the App.vue
+
+# 3. Task: Use custom events
+
+In this task we will use custom events to modify parent state.
+
+## Solve the following tasks:
+
+- [ ] Add a custom event when the `Add Bookmark` button was clicked.
+- [ ] Add `isBookmarked` with a value `true` when the `Add Bookmark` button was clicked.
+- [ ] When a book has a `isBookmarked` property that is `true`, display the text remove button.
+  - [ ] Otherwise show `Add Bookmark` as button text.
+- [ ] Implement that the `isBookmarked` state of each book could be changed between true and false.
