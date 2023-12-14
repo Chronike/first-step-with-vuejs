@@ -34,3 +34,21 @@ In this task we will use custom events to modify parent state.
 - [ ] When a book has a `isBookmarked` property that is `true`, display the text remove button.
   - [ ] Otherwise show `Add Bookmark` as button text.
 - [ ] Implement that the `isBookmarked` state of each book could be changed between true and false.
+
+# 4. Using slots
+
+In this task we will use slots to make our components more flexible
+
+## Solve the following tasks:
+
+- [ ] Make the last BookListRow column more flexible
+  - [ ] `BookListRow.vue`: Add a scoped slot with the name `actionCol` into the last td. The slot has no default content.
+  - [ ] Implement the BaseButton into the `BookList` component and use the new scoped slot of the imported BookListRow component.
+- [ ] Make the BaseButton more flexible with a default slot
+  - [ ] `BasteButton.vue`: Replace the `prop` text with a default slot
+  - BookList.vue:
+    - [ ] Update the `BaseButton` by using the slots
+    - [ ] Add a icon to slot. Use the plus icon when `isBookmarked` is false or the remove icon when it's true. See section `Material` below the tasks to get the svg code for the icons.
+    - [ ] The icons are too big. Try to fix it.
+
+
